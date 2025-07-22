@@ -1,0 +1,93 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 39 100% 50%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 39 100% 50%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-cinema text-foreground min-h-screen;
+    background-image: var(--cinema-gradient);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  .cinema-container {
+    @apply container mx-auto px-4 py-8 max-w-7xl;
+  }
+  
+  .movie-card {
+    @apply bg-cinema-light rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .movie-poster {
+    @apply relative w-full overflow-hidden aspect-[2/3];
+  }
+  
+  .movie-poster img {
+    @apply w-full h-full object-cover transition-transform duration-300;
+  }
+  
+  .movie-card:hover .movie-poster img {
+    @apply scale-105;
+  }
+  
+  .movie-info {
+    @apply p-4;
+  }
+  
+  .rating-star {
+    @apply text-cinema-accent;
+  }
+  
+  .genre-tag {
+    @apply bg-cinema-muted text-xs font-medium px-2 py-1 rounded-full mr-1 mb-1 inline-block;
+  }
+}
+
+:root {
+  --cinema-gradient: linear-gradient(to bottom, #0f172a, #020617);
+}
